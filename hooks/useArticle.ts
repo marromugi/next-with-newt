@@ -10,7 +10,9 @@ export const useArticle = (): Article[] => {
   }, [])
 
   useEffect(() => {
-    getArticles().then((b) => setArticles(b))
+    getArticles()
+      .then((b) => setArticles(b))
+      .catch(() => setArticles([]))
   }, [getArticles])
 
   return articles
